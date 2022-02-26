@@ -1,18 +1,18 @@
-#ifndef PhoneBook_CPP
-# define PhoneBook_CPP
+#ifndef PhoneBook_HPP
+# define PhoneBook_HPP
+# include "Contact.hpp"
 
 class PhoneBook {
 
+	private:
+		Contact _contacts[8];
+		int	_nbr_of_contacts;
+		int	_total_contacts;
 	public:
-
-	// array of contacts[8]?
-	int	foo;
-
-	PhoneBook( void );
-	~PhoneBook( void );
-
-	void	bar( void);
-	
+		PhoneBook( void );
+		~PhoneBook( void );
+		void	add( void );
+		void	search( void); // const?!
 };
 
 #endif
