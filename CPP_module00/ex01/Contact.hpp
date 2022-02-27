@@ -16,6 +16,7 @@ class Contact {
 		~Contact( void );
 		void	setData( void );
 		void	printContact( void );
+		void	printTen(int index);
 };
 
 #endif

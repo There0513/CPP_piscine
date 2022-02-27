@@ -8,14 +8,14 @@ int	main(void)
 	std::string	buff;
 
 	std::cout << "Please enter ADD SEARCH or EXIT" << std::endl;
-	while (1)
+	while (std::cin.eof() != 1)
 	{
 		std::cin >> buff;
 		if (buff == "EXIT")
 			break ;
-		if (buff == "ADD")
+		else if (buff == "ADD")
 			phonebook.add();
-		if (buff == "SEARCH")
+		else if (buff == "SEARCH")
 			phonebook.search();
 	}
 	return 0;
