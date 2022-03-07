@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie( void ) {
-	return ;
+//	return ;
 }
 
 Zombie::Zombie( std::string name ) : _name(name) {
@@ -10,7 +10,7 @@ Zombie::Zombie( std::string name ) : _name(name) {
 
 Zombie::~Zombie( void ) {
 	std::cout << "Destructor " << _name  << std::endl;
-	return ; 
+//	return ; 
 }
 
 void	Zombie::announce( void ) {

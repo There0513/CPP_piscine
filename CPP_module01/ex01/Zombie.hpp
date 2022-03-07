@@ -13,6 +13,7 @@ class Zombie {
 		Zombie( std::string name );
 		~Zombie( void );
 		void	announce( void );
+		void	set_name( std::string name );
 		
 };
 
