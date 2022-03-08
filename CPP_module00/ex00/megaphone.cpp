@@ -11,7 +11,7 @@ int	main(int ac, char **av)
 	{
 		std::locale loc;
 		std::string str = av[i];
-		for (int j = 0; j<str.length(); j++)
+		for (unsigned long j = 0; j < str.length(); j++)
 			std::cout << std::toupper(str[j], loc);
 		i++;
 	}

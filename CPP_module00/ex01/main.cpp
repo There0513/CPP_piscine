@@ -10,6 +10,7 @@ int	main(void)
 	std::cout << "Please enter ADD SEARCH or EXIT" << std::endl;
 	while (std::cin.eof() != 1)
 	{
+		std::cout << "> ";
 		std::cin >> buff;
 		if (buff == "EXIT")
 			break ;

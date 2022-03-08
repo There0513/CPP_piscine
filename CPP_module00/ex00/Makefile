@@ -1,12 +1,12 @@
-SRCS	= megaphone.cpp
+SRCS	= ./megaphone.cpp
 
 NAME	= megaphone
 
-CC	= clang++
+CC	= c++
 
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-OBJS	= ${SRCS:.cpp=.o}
+OBJS	= ${SRCS:.c=.o}
 
 .c.o:
 
@@ -16,10 +16,9 @@ $(NAME):	${OBJS}
 all:		${NAME}
 
 clean:
-	rm -rf ${OBJS}
+	rm -rf ${NAME}
 
 fclean:		clean
-		rm -rf ${NAME}
 
 re:		fclean all
 

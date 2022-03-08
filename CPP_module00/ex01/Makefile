@@ -7,7 +7,7 @@ HEADER	= PhoneBook.hpp \
 
 NAME	= phonebook
 
-CC	= clang++
+CC	= c++
 
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
 

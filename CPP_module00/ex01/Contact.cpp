@@ -18,7 +18,10 @@ Contact::~Contact( void ) {
 void	Contact::setData( void ) {
 	std::cout << "Please enter the following informations:" << std::endl;
 	std::cout << "First name: ";
+	//std::getline(std::cin, _first_name);
 	std::getline(std::cin >> std::ws, _first_name);
+	if (std::cin.eof() == 1)
+		return;
 	std::cout << "Last name: ";
 	std::getline(std::cin >> std::ws, _last_name);
 	std::cout << "Nickname: ";
