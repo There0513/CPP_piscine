@@ -3,6 +3,7 @@
 #include "Contact.hpp"
 #include <sstream>
 #include <iomanip>
+#include <string>
 
 Contact::Contact( void ) {
 //	std::cout << "Contact constructor called" << std::endl;
@@ -17,15 +18,15 @@ Contact::~Contact( void ) {
 void	Contact::setData( void ) {
 	std::cout << "Please enter the following informations:" << std::endl;
 	std::cout << "First name: ";
-	std::cin >> _first_name;
+	std::getline(std::cin >> std::ws, _first_name);
 	std::cout << "Last name: ";
-	std::cin >> _last_name;
+	std::getline(std::cin >> std::ws, _last_name);
 	std::cout << "Nickname: ";
-	std::cin >> _nickname;
+	std::getline(std::cin >> std::ws, _nickname);
 	std::cout << "Phone nbr: ";
-	std::cin >> _phone_nbr;
+	std::getline(std::cin >> std::ws, _phone_nbr);
 	std::cout << "Darkest secret: ";
-	std::cin >> _secret;
+	std::getline(std::cin >> std::ws, _secret);
 
 }
 
@@ -38,7 +39,6 @@ void	Contact::printContact( void ) {
 }
 
 void	Contact::printTen(int index) {
-	//index firstname lastname nickname
 	std::cout << std::setw(10);
 	std::cout << index;
 	std::cout << "|";
