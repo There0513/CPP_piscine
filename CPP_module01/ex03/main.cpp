@@ -6,9 +6,13 @@
 /*   By: threiss <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 15:13:46 by threiss           #+#    #+#             */
-/*   Updated: 2022/03/07 15:14:00 by threiss          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:43:16 by threiss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 int main(void)
 {

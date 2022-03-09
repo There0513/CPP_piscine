@@ -9,7 +9,7 @@ HEADER	= Weapon.hpp \
 
 NAME	= noviolence
 
-CC	= clang++
+CC	= c++
 
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
 
