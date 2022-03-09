@@ -56,7 +56,7 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";p_amount:" << _amount;
-	std::cout << "withdrawal:";
+	std::cout << ";withdrawal:";
 	if (withdrawal > _amount)
 	{
 		std::cout << "refused" << std::endl;
@@ -88,7 +88,8 @@ void	Account::displayStatus( void ) const {
 void	Account::_displayTimestamp( void ) {
        	std::time_t t = std::time(0);   // get time now
     	std::tm* now = std::localtime(&t);
-	std::cout << "[" << (now->tm_year + 1900) << std::setfill('0') << std::setw(2) << (now->tm_mon + 1) <<  now->tm_mday;
+	std::cout << "[" << (now->tm_year + 1900) << std::setfill('0') << std::setw(2) << (now->tm_mon + 1) << std::setfill('0') << std::setw(2) <<  now->tm_mday;
+	//std::cout << "[" << (now->tm_year + 1900) << std::setfill('0') << std::setw(2) << (now->tm_mon + 1) <<  now->tm_mday;
 	std::cout << "_";
 	std::cout << std::setfill('0') << std::setw(2) << now->tm_hour << std::setfill('0') << std::setw(2) << now->tm_min << std::setfill('0') << std::setw(2) << now->tm_sec;
 	std::cout << "] ";
