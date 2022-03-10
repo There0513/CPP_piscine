@@ -1,21 +1,21 @@
 #ifndef KAREN_HPP
-#define KAREN_HPP
+# define KAREN_HPP
+
+# include <string>
+# include <iostream>
 
 class Karen
 {
     private:
-        /* data */
+        void    _debug( void );
+        void    _info( void );
+        void    _warning( void );
+        void    _error( void );
+
     public:
-        Karen(/* args */);
+        Karen( void );
         ~Karen();
+        void    complain( std::string level );
 };
-
-Karen::Karen(/* args */)
-{
-}
-
-Karen::~Karen()
-{
-}
 
 #endif
