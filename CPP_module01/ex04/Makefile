@@ -1,6 +1,6 @@
 SRCS	= main.cpp \
 
-HEADER	= sed.hpp \
+# HEADER	= sed.hpp \
 
 NAME	= sed
 
