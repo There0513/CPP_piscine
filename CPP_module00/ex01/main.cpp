@@ -18,6 +18,8 @@ int	main(void)
 			phonebook.add();
 		else if (buff == "SEARCH")
 			phonebook.search();
+		else
+			std::cout << "[ADD] [SEARCH] or [EXIT]" << std::endl;
 	}
 	return 0;
 }

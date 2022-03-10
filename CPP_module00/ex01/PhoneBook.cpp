@@ -39,7 +39,7 @@ void	PhoneBook::search( void ) {
 	}
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	std::cout << "___________________________________________" << std::endl;
-	while (index < _total_contacts/* && index < 4*/)
+	while (index < _total_contacts)
 	{
 		_contacts[index].printTen(index);
 		index++;
