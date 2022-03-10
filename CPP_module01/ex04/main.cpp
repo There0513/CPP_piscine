@@ -39,7 +39,7 @@ int main(int ac, char **av)
 		}
 	}
 	else
-		std::cout << "Something went wrong." << std::endl;
+		std::cout << "Something went wrong. Maybe the file does not exist?" << std::endl;
 	ini_file.close();
 	out_file.close();
 	return 0;

@@ -1,7 +1,5 @@
 SRCS	= main.cpp \
 
-# HEADER	= sed.hpp \
-
 NAME	= sed
 
 CC	= c++
@@ -10,7 +8,7 @@ CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 OBJS	= ${SRCS:.cpp=.o}
 
-$(NAME):	${OBJS} ${HEADER}
+$(NAME):	${OBJS}
 			${CC} ${CPP_FLAGS} ${SRCS} -o ${NAME}
 
 %.o :	%.cpp

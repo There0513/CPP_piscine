@@ -1,16 +1,14 @@
 SRCS	= main.cpp \
 
-#HEADER	= Zombie.hpp
-
 NAME	= brainz
 
-CC	= clang++
+CC	= c++
 
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 OBJS	= ${SRCS:.cpp=.o}
 
-$(NAME):	${OBJS} #${HEADER}
+$(NAME):	${OBJS}
 			${CC} ${CPP_FLAGS} ${SRCS} -o ${NAME}
 
 %.o :	%.cpp

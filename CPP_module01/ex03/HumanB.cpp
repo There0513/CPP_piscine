@@ -2,11 +2,11 @@
 #include "Weapon.hpp"
 
 HumanB::HumanB( std::string name ) : _name(name)/*, _weapon(NULL) */ {
-	std::cout << "Constructor HumanB\n";
+	// std::cout << "Constructor HumanB\n";
 }
 
 HumanB::~HumanB( void ) {
-	std::cout << "Destructor HumanB\n";
+	// std::cout << "Destructor HumanB\n";
 }
 
 void	HumanB::attack( void ) const {

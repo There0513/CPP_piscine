@@ -7,7 +7,6 @@ Karen::~Karen() {
 }
 
 void    Karen::complain( std::string level ) {
-    std::cout << "complain: " << level << std::endl;
     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
     // ptr to functions:
