@@ -72,9 +72,9 @@ class   Fixed {
         • A static member function max that takes as parameters two references to constant
         fixed-point numbers, and returns a reference to the greatest one.*/
         static Fixed    & min( Fixed &ref_fixed1, Fixed &ref_fixed2);
-        static Fixed    & min( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
+        const static Fixed    & min( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
         static Fixed    & max( Fixed &ref_fixed1, Fixed &ref_fixed2);
-        static Fixed    & max( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
+        const static Fixed    & max( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
 };
 
 // <<:

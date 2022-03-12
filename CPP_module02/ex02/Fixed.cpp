@@ -1,22 +1,22 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed( void ): _fixed_point_val(0) {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed( Fixed const & copy ) {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = copy;
 }
 
 Fixed   & Fixed::operator=(Fixed const & copy) {
-    std::cout << "Copy assignment operator called" << std::endl;
+    // std::cout << "Copy assignment operator called" << std::endl;
     this->_fixed_point_val = copy.getRawBits();
     return *this;
 }
 
 Fixed::~Fixed( void ) {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 int     Fixed::getRawBits( void ) const {
@@ -25,21 +25,21 @@ int     Fixed::getRawBits( void ) const {
 }
 
 void    Fixed::setRawBits( int const raw) {
-    std::cout << "setRawBits member function called" << std::endl;
+    // std::cout << "setRawBits member function called" << std::endl;
     this->_fixed_point_val = raw;
 }
 
 
 // added to ex00 (ex01):
 Fixed::Fixed( const int nbr ): _fixed_point_val(nbr << _fractional_bits) {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     /* It converts it to the corresponding fixed-point value.
     The fractional bits value is initialized to 8 like in exercise 00.
     */
 }
 
 Fixed::Fixed( const float nbr ): _fixed_point_val(roundf(nbr * (1 << _fractional_bits))) {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     /* It converts it to the corresponding fixed-point value.
     The fractional bits value is initialized to 8 like in exercise 00.
     */
@@ -89,42 +89,74 @@ bool    Fixed::operator!=(Fixed const & copy) const {
 
 /* arithmetic operators */
 Fixed   Fixed::operator+(Fixed const & copy) const {
-    std::cout << "operator+:" << std::endl;
-    return this->_fixed_point_val + copy._fixed_point_val;
+    return Fixed(this->toFloat() + copy.toFloat());
+    // also working (but longer):
+    // Fixed ret;
+    // ret.setRawBits(this->_fixed_point_val + copy.getRawBits());
+    // return ret;
 }
 
-// Fixed   Fixed::operator-(Fixed const & copy) const {
+Fixed   Fixed::operator-(Fixed const & copy) const {
+    return Fixed(this->toFloat() - copy.toFloat());
+}
 
-// }
+Fixed   Fixed::operator*(Fixed const & copy) const {
+    return Fixed(this->toFloat() * copy.toFloat());
+}
 
-// Fixed   Fixed::operator*(Fixed const & copy) const {
-
-// }
-
-// Fixed   Fixed::operator/(Fixed const & copy) const {
-
-// }
+Fixed   Fixed::operator/(Fixed const & copy) const {
+    return Fixed(this->toFloat() / copy.toFloat());
+}
 
 
 /* increment/decrement */
-// Fixed   & operator++( void ) {
+Fixed   & Fixed::operator++( void ) {   // ++i
+    this->_fixed_point_val++;
+    return *this;
+}
 
-// }
+Fixed   Fixed::operator++( int ) {      // i++
+    Fixed   tmp;
 
-// Fixed   operator++( int ) {
+    tmp = *this;
+    this->_fixed_point_val++;
+    return tmp; // return 'old' value & ++ after print
+}
 
-// }
+Fixed   & Fixed::operator--( void ) {
+    this->_fixed_point_val--;
+    return *this;
+}
 
-// Fixed   & operator--( void ) {
+Fixed   Fixed::operator--( int ) {
+    Fixed   tmp;
+    
+    tmp = *this;
+    this->_fixed_point_val--;
+    return tmp;
+}
 
-// }
+/* public overloaded member functions */
+Fixed    & Fixed::min( Fixed &ref_fixed1, Fixed &ref_fixed2) {
+    if (ref_fixed1 < ref_fixed2)
+        return ref_fixed1;
+    return ref_fixed2;
+}
 
-// Fixed   operator--( int ) {
+const Fixed    & Fixed::min( Fixed const &ref_fixed1, Fixed const &ref_fixed2) {
+    if (ref_fixed1 < ref_fixed2)
+        return ref_fixed1;
+    return ref_fixed2;
+}
 
-// }
+Fixed    & Fixed::max( Fixed &ref_fixed1, Fixed &ref_fixed2) {
+    if (ref_fixed1 > ref_fixed2)
+        return ref_fixed1;
+    return ref_fixed2;
+}
 
-// /* public overloaded member functions */
-// static Fixed    & min( Fixed &ref_fixed1, Fixed &ref_fixed2);
-// static Fixed    & min( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
-// static Fixed    & max( Fixed &ref_fixed1, Fixed &ref_fixed2);
-// static Fixed    & max( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
+const Fixed    & Fixed::max( Fixed const &ref_fixed1, Fixed const &ref_fixed2) {
+    if (ref_fixed1 > ref_fixed2)
+        return ref_fixed1;
+    return ref_fixed2;
+}
