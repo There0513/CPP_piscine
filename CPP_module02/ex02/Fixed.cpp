@@ -61,3 +61,69 @@ std::ostream &  operator<<( std::ostream & o, Fixed const & copy ) {    // o = o
 }
 
 // added to ex01 (ex02):
+/* comparison operators */
+bool    Fixed::operator>(Fixed const & copy) const {
+    return this->_fixed_point_val > copy._fixed_point_val;
+}
+
+bool    Fixed::operator<(Fixed const & copy) const {
+    return this->_fixed_point_val < copy._fixed_point_val;
+}
+
+bool    Fixed::operator>=(Fixed const & copy) const {
+    return this->_fixed_point_val >= copy._fixed_point_val;
+}
+
+bool    Fixed::operator<=(Fixed const & copy) const {
+    return this->_fixed_point_val <= copy._fixed_point_val;
+}
+
+bool    Fixed::operator==(Fixed const & copy) const {
+    return this->_fixed_point_val == copy._fixed_point_val;
+}
+
+bool    Fixed::operator!=(Fixed const & copy) const {
+    return this->_fixed_point_val != copy._fixed_point_val;
+}
+
+
+/* arithmetic operators */
+Fixed   Fixed::operator+(Fixed const & copy) const {
+    return this->_fixed_point_val + copy._fixed_point_val;
+}
+
+// Fixed   Fixed::operator-(Fixed const & copy) const {
+
+// }
+
+// Fixed   Fixed::operator*(Fixed const & copy) const {
+
+// }
+
+// Fixed   Fixed::operator/(Fixed const & copy) const {
+
+// }
+
+
+/* increment/decrement */
+// Fixed   & operator++( void ) {
+
+// }
+
+// Fixed   operator++( int ) {
+
+// }
+
+// Fixed   & operator--( void ) {
+
+// }
+
+// Fixed   operator--( int ) {
+
+// }
+
+// /* public overloaded member functions */
+// static Fixed    & min( Fixed &ref_fixed1, Fixed &ref_fixed2);
+// static Fixed    & min( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
+// static Fixed    & max( Fixed &ref_fixed1, Fixed &ref_fixed2);
+// static Fixed    & max( Fixed const &ref_fixed1, Fixed const &ref_fixed2);
