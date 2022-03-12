@@ -89,6 +89,7 @@ bool    Fixed::operator!=(Fixed const & copy) const {
 
 /* arithmetic operators */
 Fixed   Fixed::operator+(Fixed const & copy) const {
+    std::cout << "operator+:" << std::endl;
     return this->_fixed_point_val + copy._fixed_point_val;
 }
 
