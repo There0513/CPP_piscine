@@ -3,8 +3,10 @@
 
 int main( void )
 {
+    
     ScavTrap    Henry("Henry");
     ScavTrap    Anna("Anna");
+    ClapTrap    Clap("clappi");
     ScavTrap    Bernd(Anna);
 
 std::cout << std::endl;
@@ -19,6 +21,7 @@ std::cout << std::endl;
     Anna.attack("Henry");
     Anna.beRepaired(2);
     Anna.attack("Henry");
+    Bernd.guardGate();
 
 std::cout << std::endl;
 
