@@ -11,6 +11,7 @@ class ClapTrap
         unsigned int    _attack_damage;
 
     public:
+        ClapTrap( void );
         ClapTrap( std::string name );                   // default constructor
         ClapTrap( ClapTrap const & copy );              // copy constructor
         ClapTrap & operator=( ClapTrap const & copy );  // copy assignment operator overload

@@ -1,16 +1,23 @@
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap( void ): ClapTrap("no_name") {
+    this->_hit_points = 100;
+    this->_energy_points = 100;
+    this->_attack_damage = 30;
+    std::cout << "   FragTrap Constructor for " << this->_name << std::endl;
+}
+
 FragTrap::FragTrap( std::string name ): ClapTrap(name) {
     this->_name = name;
     this->_hit_points = 100;
     this->_energy_points = 100;
     this->_attack_damage = 30;
-    std::cout << "    FragTrap Constructor for " << this->_name << std::endl;
+    std::cout << "   FragTrap Constructor for " << this->_name << std::endl;
 }
 
 FragTrap::FragTrap( FragTrap const & copy ): ClapTrap(copy) {
-    std::cout << "    FragTrap Copy constructor for " << copy._name << std::endl;
+    std::cout << "   FragTrap Copy constructor for " << copy._name << std::endl;
     *this = copy;
 }
 
@@ -23,9 +30,9 @@ FragTrap & FragTrap::operator=( FragTrap const & copy ) {
 }
 
 FragTrap::~FragTrap( void ) {
-    std::cout << "    FragTrap Destructor for " << this->_name << std::endl;
+    std::cout << "   FragTrap Destructor for " << this->_name << std::endl;
 }
 
 void    FragTrap::highFivesGuys( void ) {
-    std::cout << "    FragTrap: >> Give me a high five! <<" << std::endl;
+    std::cout << "   FragTrap: >> Give me a high five! <<" << std::endl;
 }

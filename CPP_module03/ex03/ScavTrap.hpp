@@ -3,9 +3,10 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap: /*virtual*/ public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
     public:
+        ScavTrap( void );
         ScavTrap( std::string name );                   // default constructor
         ScavTrap( ScavTrap const & copy );              // copy constructor
         ScavTrap & operator=( ScavTrap const & copy );  // copy assignment operator overload
