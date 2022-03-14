@@ -1,13 +1,15 @@
 SRCS	= main.cpp \
 	  ClapTrap.cpp \
 	  ScavTrap.cpp \
-	  FragTrap.cpp
+	  FragTrap.cpp \
+	  DiamondTrap.cpp
 
 HEADER	= ClapTrap.hpp \
 		ScavTrap.hpp \
-		FragTrap.hpp
+		FragTrap.hpp \
+		DiamondTrap.hpp
 
-NAME	= Fraggi
+NAME	= Diamonds
 
 CC	= c++
 
