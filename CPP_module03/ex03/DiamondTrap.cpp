@@ -1,10 +1,6 @@
 #include "ClapTrap.hpp"
 #include "DiamondTrap.hpp"
 
-// DiamondTrap::DiamondTrap( void ): ClapTrap(), FragTrap(), ScavTrap() {  // needed?!
-//     std::cout << "    DiamondTrap Constructor void for " << this->_name << std::endl;
-// }
-
 DiamondTrap::DiamondTrap( std::string name ): ClapTrap(name + "_clap_name"), _name(name) {
     this->_name = name;
     this->_hit_points = FragTrap::_hit_points;

@@ -45,8 +45,6 @@ void    ClapTrap::takeDamage( unsigned int amount ) {
 }
 
 void    ClapTrap::beRepaired( unsigned int amount ) {
-/* When ClapTrap repairs itself, it gets <amount> hit points back. 
-Attacking and repairing cost 1 energy point each. */
     std::cout << "ClapTrap " << this->_name << " is being repaired and gets " << amount << " hit points back"  << std::endl;
     this->_hit_points += amount;
     this->_energy_points--;
