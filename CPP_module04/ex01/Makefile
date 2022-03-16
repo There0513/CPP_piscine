@@ -1,17 +1,15 @@
 SRCS	= main.cpp \
 	  Animal.cpp \
-	  WrongAnimal.cpp \
 	  Dog.cpp \
 	  Cat.cpp \
-	  WrongCat.cpp
+	  Brain.cpp
 
 HEADER	= Animal.hpp \
-		WrongAnimal.hpp \
 		Dog.hpp \
 		Cat.hpp \
-		WrongCat.hpp
+	  	Brain.hpp
 
-NAME	= my_animals
+NAME	= my_intelligent_animals
 
 CC	= c++
 

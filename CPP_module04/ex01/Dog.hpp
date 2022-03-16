@@ -4,6 +4,9 @@
 
 class Dog: public Animal
 {
+    private:
+        Brain   *_brain;
+
     public:
         /* default constructor - copy constructor - copy assignment operator overload - destructor */
         Dog( void );

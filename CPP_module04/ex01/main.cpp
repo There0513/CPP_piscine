@@ -1,31 +1,48 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Animal.hpp"
 
 int main(void)
 {
-    const Animal *meta = new Animal();
-    const Animal *j = new Dog();
-    const Animal *i = new Cat();
-    const WrongAnimal *z = new WrongAnimal();
-    const WrongAnimal *x = new WrongCat();
+    {
+        Cat cat;
+        Cat copycat = cat;
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << meta->getType() << " " << std::endl;
-    std::cout << z->getType() << " " << std::endl;
-    std::cout << x->getType() << " " << std::endl;
+        cat.getBrain()->getIdea()[0] = "my first idea";
+        std::cout << cat.getBrain()->getIdea()[0] << std::endl;
+        std::cout << std::endl;
 
-    i->makeSound(); // will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    z->makeSound();
-    x->makeSound();
+// NOT WORKING - GO ON HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        std::cout << "copycats first idea is: " << copycat.getBrain()->getIdea()[0] << std::endl;
+    }
+    std::cout << "\033\n[1;40m_________________________\033[0m\n";
+    { //             "\033[1;40mbold                 text\033[0m\n"
+        // example deep copy:
+        // Cat Cat1;
+        // Cat Cat2 = Cat1;
 
-    delete meta;
-    delete j;
-    delete i;
-    delete z;
-    delete x;
-    return 0;
+    }
+  /*  {
+        const Animal    *my_animals[10];
+
+        std::cout << "\033[1;33mcreate my_animals array:\033[0m" << std::endl;
+        for (int i = 0; i < 10; i++) {
+            if (i < 5)
+                my_animals[i] = new Cat();
+            else
+                my_animals[i] = new Dog();
+        }
+
+    std::cout << std::endl;
+        // std::cout << my_dogs->getType() << " " << std::endl;
+        // my_dogs->makeSound();
+
+    std::cout << std::endl;
+
+        std::cout << "\033[1;33mdelete my_animals array:\033[0m" << std::endl;
+        for (int i = 0; i < 10; i++) {
+                delete my_animals[i];
+        }
+    }
+ */   return 0;
 }

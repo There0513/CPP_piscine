@@ -21,5 +21,5 @@ WrongCat::~WrongCat( void ) {
 }
 
 void    WrongCat::makeSound( void ) const {
-    std::cout << "Miauuu" << std::endl;
+    std::cout << "\033[31mWrongCat\033[0m Miauuus " << std::endl;
 }

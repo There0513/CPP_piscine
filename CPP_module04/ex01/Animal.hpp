@@ -1,6 +1,7 @@
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 # include <iostream>
+# include "Brain.hpp"
 
 // VIRTUAL
 class Animal
@@ -8,8 +9,16 @@ class Animal
     protected:
         std::string _type;
 
+    /* We're making this constructor protected because
+       we don't want people creating Animal objects directly,
+       but we still want derived classes to be able to use it. */
+    /* Animal(const std::string& name)
+           : m_name{ name }
+       {
+       } */
+
     public:
-        /* default constructor - copy constructor - copy assignment operator overload - destructor: */
+        /* default constructor (+ with argument) - copy constructor - copy assignment operator overload - destructor: */
         Animal( void );
         Animal( std::string type );
         Animal( Animal const & copy );

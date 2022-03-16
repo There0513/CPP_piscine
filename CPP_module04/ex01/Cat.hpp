@@ -4,6 +4,9 @@
 
 class Cat: public Animal
 {
+    private:
+        Brain   *_brain;
+
     public:
         /* default constructor - copy constructor - copy assignment operator overload - destructor */
         Cat( void );
@@ -13,6 +16,7 @@ class Cat: public Animal
         ~Cat( void );
 
         virtual void    makeSound( void ) const;
+        Brain   *getBrain( void ) const;
 };
 
 #endif

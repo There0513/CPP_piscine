@@ -21,7 +21,7 @@ Animal & Animal::operator=(Animal const & copy) {
 }
 
 Animal::~Animal( void ) {
-    std::cout << "Destructor Animal with type " << this->_type << std::endl;
+    std::cout << "Destructor Animal with type " << this->_type << "\n\033[1;33m_________________________\033[0m" << std::endl;
 }
 
 std::string     Animal::getType( void ) const {
