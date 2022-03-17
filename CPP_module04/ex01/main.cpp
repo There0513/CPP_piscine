@@ -6,22 +6,37 @@ int main(void)
 {
     {
         Cat cat;
-        Cat copycat = cat;
 
         cat.getBrain()->getIdea()[0] = "my first idea";
         std::cout << cat.getBrain()->getIdea()[0] << std::endl;
         std::cout << std::endl;
 
-// NOT WORKING - GO ON HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        std::cout << "copycats first idea is: " << copycat.getBrain()->getIdea()[0] << std::endl;
+        Cat *copycat = new Cat(cat);
+
+
+        std::cout << "copycats first idea is: " << copycat->getBrain()->getIdea()[0] << std::endl;
+    delete copycat;
+    }
+    {
+        Dog dog;
+
+        dog.getBrain()->getIdea()[0] = "my first idea";
+        std::cout << dog.getBrain()->getIdea()[0] << std::endl;
+        std::cout << std::endl;
+
+        Dog *copydog = new Dog(dog);
+
+
+        std::cout << "copycats first idea is: " << copydog->getBrain()->getIdea()[0] << std::endl;
+    delete copydog;
     }
     std::cout << "\033\n[1;40m_________________________\033[0m\n";
-    { //             "\033[1;40mbold                 text\033[0m\n"
+    //{ //             "\033[1;40mbold                 text\033[0m\n"
         // example deep copy:
         // Cat Cat1;
         // Cat Cat2 = Cat1;
 
-    }
+    //}
   /*  {
         const Animal    *my_animals[10];
 

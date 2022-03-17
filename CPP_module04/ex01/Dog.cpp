@@ -6,7 +6,7 @@ Dog::Dog( void ) {
     this->_brain = new Brain();
 }
 
-Dog::Dog( Dog const & copy ) {
+Dog::Dog( Dog const & copy ): Animal(copy), _brain(new Brain()) {
     std::cout << "Copy constructor Dog for " << copy._type << std::endl;
     *this = copy;
 }
@@ -14,7 +14,9 @@ Dog::Dog( Dog const & copy ) {
 Dog & Dog::operator=(Dog const & copy) {
     std::cout << "Copy assignment operator overload Dog." << std::endl;
     this->_type = copy._type;
-    this->_brain = copy._brain;
+    delete _brain;
+    this->_brain = new Brain();
+    *(this->_brain) = *copy._brain;
     return *this;
 }
 
@@ -25,4 +27,8 @@ Dog::~Dog( void ) {
 
 void    Dog::makeSound( void ) const {
     std::cout << "Wuff Wuff" << std::endl;
+}
+
+Brain   *Dog::getBrain( void ) const {
+    return this->_brain;
 }

@@ -6,7 +6,7 @@ Cat::Cat( void ) {
     this->_brain = new Brain();
 }
 
-Cat::Cat( Cat const &copy ) {
+Cat::Cat( Cat const &copy ): Animal(copy), _brain(new Brain())  {
     std::cout << "Copy constructor Cat for " << copy._type << std::endl;
     *this = copy;
 }
@@ -14,8 +14,10 @@ Cat::Cat( Cat const &copy ) {
 Cat & Cat::operator=( Cat const &copy ) {
     std::cout << "Copy assignment operator overload Cat." << std::endl;
     this->_type = copy._type;
+    delete _brain;  // delete brain first, otherwise leaks!
     // this->_brain = copy._brain;  // -> leaks with valgrind
-    (this->_brain) = new Brain(*copy._brain);
+    this->_brain = new Brain();
+    *(this->_brain) = *copy._brain;
     return *this;
 }
 
