@@ -22,8 +22,8 @@ Cat & Cat::operator=( Cat const &copy ) {
 }
 
 Cat::~Cat( void ) {
-    std::cout << "Destructor Cat with type " << this->_type << std::endl;
     delete this->_brain;
+    std::cout << "Destructor Cat with type " << this->_type << std::endl;
 }
 
 void    Cat::makeSound( void ) const {

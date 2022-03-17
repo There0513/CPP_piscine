@@ -21,8 +21,8 @@ Dog & Dog::operator=(Dog const & copy) {
 }
 
 Dog::~Dog( void ) {
-    std::cout << "Destructor Dog with type " << this->_type << std::endl;
     delete this->_brain;
+    std::cout << "Destructor Dog with type " << this->_type << std::endl;
 }
 
 void    Dog::makeSound( void ) const {
