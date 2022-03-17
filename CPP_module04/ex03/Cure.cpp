@@ -2,6 +2,7 @@
 #include "AMateria.hpp"
 
 Cure::Cure( void ): AMateria("cure") {
+    std::cout << "Constructor Cure" << std::endl;
 }
 
 Cure::Cure( Cure const & copy )/*: AMateria() ?!*/ {

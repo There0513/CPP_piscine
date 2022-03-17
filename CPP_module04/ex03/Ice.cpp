@@ -2,6 +2,7 @@
 #include "AMateria.hpp"
 
 Ice::Ice( void ): AMateria("ice") {
+    std::cout << "Constructor Ice" << std::endl;
 }
 
 Ice::Ice( Ice const & copy )/*: AMateria() ?!*/ {

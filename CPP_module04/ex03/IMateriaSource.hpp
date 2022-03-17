@@ -1,0 +1,16 @@
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
+# include "AMateria.hpp"
+# include <iostream>
+
+/* INTERFACE from subject */
+
+class   IMateriaSource
+{
+    public:
+        virtual ~IMateriaSource( void ) {}
+        virtual void        learnMateria( AMateria* ) = 0;
+        virtual AMateria*   createMateria( std::string const & type ) = 0;
+};
+
+#endif
