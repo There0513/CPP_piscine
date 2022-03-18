@@ -36,15 +36,22 @@ void        MateriaSource::learnMateria( AMateria* tocopy) {
 // are not necessarily unique.
     for (int i = 0; i < 4; i++) {
         if (!_inventory[i])
+        {
             _inventory[i] = tocopy;
+            std::cout << "MateriaSource learned " << tocopy->getType() << std::endl;
             return ;
+        }
     }
-    // if (i == 4)
-    //     delete tocopy;
+    std::cout << "No more space in inventory." << std::endl;
 }
 
 AMateria*   MateriaSource::createMateria( std::string const & type ) {
 // Returns a new Materia. The latter is a copy of the Materia previously learned by
 // the MateriaSource whose type equals the one passed as parameter. Returns 0 if
 // the type is unknown.
+    for (int i = 0; i < 4; i++) {
+        if (this->_inventory[i]->getType() == type)
+            return this->_inventory[i]->clone();
+    }
+    return 0;
 }

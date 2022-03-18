@@ -17,7 +17,7 @@ class Character: public ICharacter
         ~Character( void );
 
     /* from ICharacter Interface: */
-        std::string const & getName( void );
+        std::string const & getName( void ) const;
         void equip( AMateria* m );
         void unequip( int idx );
         void use( int idx, ICharacter& target );

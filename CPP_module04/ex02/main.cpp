@@ -24,60 +24,64 @@ int main(void)
         delete i;
     }
 
-    // std::cout << "\033\n[1;45m_________NEXT________________\033[0m\n";
+    std::cout << "\033\n[1;45m_________NEXT________________\033[0m\n";
 
-    // {
-    //     std::cout << "\n\tbrain/copy Cat tests - without leaks:" << std::endl;
-    //     Cat cat;
+    {
+        std::cout << "\n\tbrain/copy Cat tests - without leaks:" << std::endl;
+        Cat cat;
 
-    //     cat.getBrain()->getIdea()[0] = "my first idea";
-    //     std::cout << "Cats idea = " << cat.getBrain()->getIdea()[0] << std::endl;
-    //     std::cout << std::endl;
+        cat.getBrain()->getIdea()[0] = "my first idea";
+        std::cout << "Cats idea = " << cat.getBrain()->getIdea()[0] << std::endl;
+        std::cout << std::endl;
 
-    //     Cat *copycat = new Cat(cat);
-    //     std::cout << std::endl;
+        Cat *copycat = new Cat(cat);
+        std::cout << std::endl;
 
-    //     std::cout << "copycats first idea is: " << copycat->getBrain()->getIdea()[0] << std::endl;
-    //     delete copycat;
-    // }
+        std::cout << "copycats first idea is: " << copycat->getBrain()->getIdea()[0] << std::endl;
+        delete copycat;
+    }
 
-    // std::cout << "\033\n[1;45m_________NEXT________________\033[0m\n";
+    std::cout << "\033\n[1;45m_________NEXT________________\033[0m\n";
 
 
-    // {
-    //     std::cout << "\n\tbrain/copy Dog tests - without leaks:" << std::endl;
-    //     Dog dog;
+    {
+        std::cout << "\n\tbrain/copy Dog tests - without leaks:" << std::endl;
+        Dog dog;
 
-    //     dog.getBrain()->getIdea()[0] = "my first idea";
-    //     std::cout << "Dogs idea = " << dog.getBrain()->getIdea()[0] << std::endl;
-    //     std::cout << std::endl;
+        dog.getBrain()->getIdea()[0] = "my first idea";
+            std::cout << "\tDogs idea = " << dog.getBrain()->getIdea()[0] << std::endl;
+        std::cout << std::endl;
 
-    //     Dog *copydog = new Dog(dog);
-    //     std::cout << std::endl;
+        Dog *copydog = new Dog(dog);
+        std::cout << std::endl;
 
-    //     std::cout << "copydogs first idea is: " << copydog->getBrain()->getIdea()[0] << std::endl;
-    //     delete copydog;
-    // }
+            std::cout << "\tcopyogs idea = " << copydog->getBrain()->getIdea()[0] << std::endl;
+        copydog->getBrain()->getIdea()[0] = "my first____";
+            std::cout << "\tcopydogs first idea is: " << copydog->getBrain()->getIdea()[0] << std::endl;
+            std::cout << "\tDogs idea = " << dog.getBrain()->getIdea()[0] << std::endl;
 
-    // std::cout << "\033\n[1;45m_________NEXT________________\033[0m\n";
+        delete copydog;
+    }
+
+    std::cout << "\033\n[1;45m_________NEXT________________\033[0m\n";
     
-    // {
-    //     const AAnimal    *my_Aanimals[10];
+    {
+        const AAnimal    *my_Aanimals[10];
 
-    //     std::cout << "\033[1;33mcreate my_Aanimals array:\033[0m" << std::endl;
-    //     for (int i = 0; i < 10; i++) {
-    //         if (i < 5)
-    //             my_Aanimals[i] = new Cat();
-    //         else
-    //             my_Aanimals[i] = new Dog();
-    //     }
-    //     std::cout << std::endl;
-    //     my_Aanimals[0]->makeSound();
-    //     std::cout << std::endl;
-    //     std::cout << "\033[1;33mdelete my_Aanimals array:\033[0m" << std::endl;
-    //     for (int i = 0; i < 10; i++) {
-    //             delete my_Aanimals[i];
-    //     }
-    // }
+        std::cout << "\033[1;33mcreate my_Aanimals array:\033[0m" << std::endl;
+        for (int i = 0; i < 10; i++) {
+            if (i < 5)
+                my_Aanimals[i] = new Cat();
+            else
+                my_Aanimals[i] = new Dog();
+        }
+        std::cout << std::endl;
+        my_Aanimals[0]->makeSound();
+        std::cout << std::endl;
+        std::cout << "\033[1;33mdelete my_Aanimals array:\033[0m" << std::endl;
+        for (int i = 0; i < 10; i++) {
+                delete my_Aanimals[i];
+        }
+    }
     return 0;
 }

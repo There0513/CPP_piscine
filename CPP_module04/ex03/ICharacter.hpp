@@ -1,9 +1,11 @@
+#pragma once
 #ifndef ICHARACTER_HPP
-# define ICARACTER_HPP
+# define ICHARACTER_HPP
 # include "AMateria.hpp"
 # include <iostream>
 
 /* INTERFACE from subject */
+class AMateria;
 
 class ICharacter
 {

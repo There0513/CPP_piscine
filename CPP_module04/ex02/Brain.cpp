@@ -1,7 +1,7 @@
 #include "Brain.hpp"
 
 Brain::Brain( void ) {
-    std::cout << "Brain constructor.\033\n[1;33m_________________________\033[0m" << std::endl;// [i] = 0
+    std::cout << "Brain constructor.\033\n[1;33m_________________________\033[0m" << std::endl;
 }
 
 Brain::Brain( Brain const & copy ) {

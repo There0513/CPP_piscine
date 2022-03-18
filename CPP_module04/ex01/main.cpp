@@ -37,7 +37,6 @@ int main(void)
 
     std::cout << "\033\n[1;45m_________NEXT________________\033[0m\n";
 
-
     {
         std::cout << "\n\tbrain/copy Dog tests - without leaks:" << std::endl;
         Dog dog;

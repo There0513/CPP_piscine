@@ -10,7 +10,6 @@ Character::Character( std::string name ): _name(name), _inventory() {
 
 Character::Character( Character const & copy) {
     this->_name = copy._name;
-    // like brain: delete?! + copy
     for (int i = 0; i < 4; i++)
         delete this->_inventory[i];
     for (int i = 0; i < 4; i++)
@@ -34,7 +33,7 @@ Character::~Character( void ) {
 }
 
 
-std::string const & Character::getName( void ) {
+std::string const & Character::getName( void ) const {
     return this->_name;
 }
 
@@ -44,6 +43,7 @@ void    Character::equip( AMateria* m ) {
     {
         if (!this->_inventory[i]) {
             this->_inventory[i] = m;
+            std::cout << this->_name << " equipped him/herself with " << m->getType() << std::endl;
             break ;
         }
     }
@@ -52,7 +52,13 @@ void    Character::equip( AMateria* m ) {
 
 void    Character::unequip( int idx ) {
     if (idx >= 0 && idx < 4)
-        this->_inventory[idx] = 0;
+    {
+        if (this->_inventory[idx] != 0)
+        {
+            std::cout << this->_name << " unequipped him/herself with " << this->_inventory[idx]->getType() << std::endl;
+            this->_inventory[idx] = 0;
+        }
+    }
 }
 
 void    Character::use( int idx, ICharacter& target ) {

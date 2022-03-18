@@ -1,6 +1,10 @@
+#pragma once
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
+# include "ICharacter.hpp"
 # include <iostream>
+
+class ICharacter;
 
 class AMateria
 {
@@ -13,7 +17,7 @@ class AMateria
         AMateria( std::string const & type);
         AMateria( AMateria const & copy );
         AMateria & operator=( AMateria const & copy);
-        virtual ~AMateria( void );    // virtual?! recheck at the end!
+        virtual ~AMateria( void );
 
         std::string const & getType( void ) const;
 

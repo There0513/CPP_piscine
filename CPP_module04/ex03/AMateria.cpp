@@ -1,9 +1,11 @@
 #include "AMateria.hpp"
 
 AMateria::AMateria( void ): _type("no_type") {
+    std::cout << "Constructor AMateria" << std::endl;
 }
 
 AMateria::AMateria( std::string const & type): _type(type) {
+    std::cout << "Constructor AMateria with args" << std::endl;
 }
 
 AMateria::AMateria( AMateria const & copy ) {
@@ -13,8 +15,8 @@ AMateria::AMateria( AMateria const & copy ) {
 
 /* subject: "While assigning a Materia to another, copying the type doesn’t make sense." */
 AMateria & AMateria::operator=( AMateria const & copy) {
-    // std::cout << "Copy assignment operator overload AMateria." << std::endl;
     (void)copy;
+    // std::cout << "Copy assignment operator overload AMateria." << std::endl;
     // this->_type = copy._type;
     return *this;
 }
@@ -28,10 +30,6 @@ std::string const & AMateria::getType( void ) const {
     return this->_type;
 }
 
-
-// virtual AMateria* AMateria::clone( void ) const = 0 {
-// }
-
 void    AMateria::use(ICharacter& target) {
-    std::cout << "AMaterial::use function called." << std::endl;
+    std::cout << "AMaterial::use function called for " << target.getName() << std::endl;
 }

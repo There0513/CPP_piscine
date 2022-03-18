@@ -12,8 +12,8 @@ Cure::Cure( Cure const & copy )/*: AMateria() ?!*/ {
 
 /* subject: "While assigning a Materia to another, copying the type doesn’t make sense." */
 Cure & Cure::operator=( Cure const & copy ) {
-    // std::cout << "Copy assignment operator overload Cure." << std::endl;
     (void)copy;
+    // std::cout << "Copy assignment operator overload Cure." << std::endl;
     return *this;
 }
 
@@ -21,10 +21,10 @@ Cure::~Cure( void ) {
     std::cout << "Destructor Cure" << std::endl;
 }
 
-Cure*   Cure::clone( void ) { // const?!
+Cure*   Cure::clone( void ) const {
     return new Cure;
 }
 
-void    Cure::use( ICharacter & who ) { //display who.name
-    std::cout << "* shoots an ice bolt at " << who._name << std::endl;
-}// _name?!?!?
+void    Cure::use( ICharacter & who ) {
+    std::cout << "\033[1;33m* heals " << who.getName() << "'s wounds *\033[0m" << std::endl;
+}
