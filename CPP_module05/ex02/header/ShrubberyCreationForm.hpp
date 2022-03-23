@@ -2,7 +2,6 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
-# include <iostream>
 
 class ShrubberyCreationForm: public AForm
 {
@@ -13,7 +12,7 @@ class ShrubberyCreationForm: public AForm
         ShrubberyCreationForm( std::string target );
         ShrubberyCreationForm( ShrubberyCreationForm const & copy );
         ShrubberyCreationForm & operator=( ShrubberyCreationForm const & copy );
-        ~ShrubberyCreationForm( void );
+        /*virtual?!*/ ~ShrubberyCreationForm( void );
 
 		// std::string getTarget() const;
         void    execute(Bureaucrat const & executor) const;

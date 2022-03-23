@@ -29,7 +29,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
         if (executor.getGrade() > this->getGrade_exec())
             throw GradeTooLowException();
     // if executed      -> create a file + plant a tree:
-        std::ofstream out_file((this->_target + "_shrubbery").c_str())
+        std::ofstream out_file((this->_target + "_shrubbery").c_str());
         if (!out_file)
         {
             std::cout << "Error with file-creation." << std::endl;
