@@ -2,6 +2,10 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include "Bureaucrat.hpp"
+
+class   AForm;
+class   Bureaucrat;
 
 class ShrubberyCreationForm: public AForm
 {

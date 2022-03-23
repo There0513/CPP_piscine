@@ -1,10 +1,11 @@
-#include "PresidentialPardonForm.hpp"
+#include "./header/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm( void ): AForm("PresidentialPardonForm", 25, 5),
 _target("Standard") {
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string target ): /* AForm(... like line 3?!)*/_target(target) {
+PresidentialPardonForm::PresidentialPardonForm( std::string target ): AForm("PresidentialPardonForm", 25, 5),
+_target(target) {
 }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & copy ) {
@@ -29,6 +30,7 @@ void    PresidentialPardonForm::execute(Bureaucrat const & executor) const {
         if (executor.getGrade() > this->getGrade_exec())
             throw GradeTooLowException();
         // Informs that <target> has been pardoned by Zaphod Beeblebrox.
+        std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox. Good for him." << std::endl;
     }
     catch(const std::exception& e)
     {

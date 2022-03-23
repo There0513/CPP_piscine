@@ -2,6 +2,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+#include <stdlib.h>     /* srand, rand */
 
 class RobotomyRequestForm: public AForm
 {

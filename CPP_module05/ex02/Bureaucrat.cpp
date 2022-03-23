@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "./header/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat( void ): _name("noName"), _grade(150) {
 }
@@ -60,11 +60,25 @@ std::ostream & operator<<( std::ostream & o, Bureaucrat const & copy ) {    // o
     return o;
 }
 
-void            Bureaucrat::signForm(AForm & form) {
+void            Bureaucrat::signForm(AForm & form) const {
     if (form.getSigned() == true)
         std::cout << "Form already signed." << std::endl;
     else if (this->_grade <= form.getGrade_sign())
         std::cout << this->_name << " signed " << form.getName() << std::endl;
     else if (this->_grade > form.getGrade_sign())
         std::cout << this->_name << " couldn't sign " << form.getName() << " because its grade is too low. He should ask his supervisior." << std::endl;
+}
+
+void    Bureaucrat::executeForm( AForm const & form ) {
+    /* It must attempt to execute the form. If it’s successful, print something like:
+    <bureaucrat> executed <form>
+    If not, print an explicit error message */
+    if (form.getSigned() != true)
+    {
+        std::cout << "Form is not signed yet. Make it sign before execution." << std::endl;
+        return ;
+    }
+    if (this->_grade > form.getGrade_exec())
+        throw Bureaucrat::GradeTooLowException();
+    std::cout << this->getName() << " executed " << form.getName() << std::endl;
 }

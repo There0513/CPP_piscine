@@ -4,6 +4,9 @@
 # include <iostream>
 # include <fstream> // std::ofstream for file
 # include "Bureaucrat.hpp"
+// # include "ShrubberyCreationForm.hpp"
+// # include "RobotomyRequestForm.hpp"
+// # include "PresidentialPardonForm.hpp"
 
 class   Bureaucrat;
 

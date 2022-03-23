@@ -1,4 +1,4 @@
-#include "AForm.hpp"
+#include "./header/AForm.hpp"
 
 AForm::AForm( void ): _name("noName"), _signed(false), _grade_sign(150), _grade_exec(150) {
 }

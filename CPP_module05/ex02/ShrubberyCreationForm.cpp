@@ -1,10 +1,11 @@
-#include "ShrubberyCreationForm.hpp"
+#include "./header/ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ): AForm("ShrubberyCreationForm", 145, 137),
 _target("Standard") {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ): /* AForm(... like line 3?!)*/_target(target) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ):AForm("ShrubberyCreationForm", 145, 137), // needed to print name
+_target(target) {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & copy ) {
@@ -35,11 +36,10 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
             std::cout << "Error with file-creation." << std::endl;
             return ;
         }
-        out_file << "\_  \   /  \  /" <<  std::endl;
-        out_file << "  \  \ /   / /" << std::endl;
-        out_file << "   \--\   /\/" << std::endl;
-        out_file << "       \ / /" << std::endl;
-        out_file << "        | |" << std::endl;
+        out_file << "\\_  \\   /  \\  /" <<  std::endl;
+        out_file << "  \\  \\ /   / /" << std::endl;
+        out_file << "   \\--\\   /\\/" << std::endl;
+        out_file << "       \\ / /" << std::endl;
         out_file << "        | |" << std::endl;
         out_file << "        | |" << std::endl;
         out_file << "        | |" << std::endl;
