@@ -52,7 +52,7 @@ const char*     AForm::FormNotSignedExeption::what() const throw() {
     return ("Form is not signed. It can't be executed without signature.");
 }
 
-void            AForm::beSigned( Bureaucrat person ) {
+void            AForm::beSigned( const Bureaucrat & person ) {
     if (this->_signed == true)
     {
         std::cout << "The document is already signed." << std::endl;
@@ -60,15 +60,14 @@ void            AForm::beSigned( Bureaucrat person ) {
     }
     if (person.getGrade() <= this->_grade_sign && person.getGrade() > 0)
     {
-        // setSigned(true);
         this->_signed = true;
-        std::cout << "The document is signed." << std::endl;
+        // std::cout << "The document is signed." << std::endl;
     }
     else
         throw AForm::GradeTooLowException();
 }
 
 std::ostream & operator<<( std::ostream & o, AForm const & copy ) {    // o = output stream
-    o << copy.getName() << "'s Form signed status = " << copy.getSigned() << ".\n" << "and can be executed with a min grade of " << copy.getGrade_exec() << " and signed with a max grade of " << copy.getGrade_sign();
+    o << "\t" << copy.getName() << "'s Form signed status = " << copy.getSigned() << "\n\t" << "and can be executed with a min grade of " << copy.getGrade_exec() << " and signed with a max grade of " << copy.getGrade_sign();
     return o;
 }

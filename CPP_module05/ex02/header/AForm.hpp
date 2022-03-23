@@ -23,14 +23,14 @@ class   AForm
         AForm( std::string name, int gradeSign, int gradeExec);
         AForm ( AForm const & copy );
         AForm & operator=( AForm const & copy );
-        ~AForm( void );
+        virtual ~AForm( void );
 
         std::string const   getName( void ) const;
         bool                getSigned( void ) const;
         int                 getGrade_sign( void ) const;
         int                 getGrade_exec( void ) const;
 
-        void                setSigned( bool state );
+        // void                setSigned( bool state );
 
         class           GradeTooHighException: public std::exception {
             public:
@@ -44,7 +44,7 @@ class   AForm
             public:
                 virtual const char*     what() const throw();
         };
-        void            beSigned(Bureaucrat person);
+        void            beSigned(const Bureaucrat & person);
         virtual void    execute(Bureaucrat const & executor) const = 0; // for new forms -> abstract class
 };
 std::ostream & operator<<( std::ostream & o, AForm const & copy);
