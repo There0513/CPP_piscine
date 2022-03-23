@@ -111,12 +111,13 @@ int     main( void )
     Bureaucrat  Max("Max", 100);
 
     AForm   *shrubbery = new ShrubberyCreationForm("shrubbery");
-    std::cout << "testtttt: " << shrubbery->getName() << std::endl;
     Bureaucrat  person1("Hans", 1);
 
     person1.executeForm(*shrubbery);
 
     person1.signForm(*shrubbery);
+    person1.executeForm(*shrubbery);
+
     std::cout << "" << std::endl;
     return 0;
 }

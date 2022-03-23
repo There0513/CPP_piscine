@@ -75,7 +75,7 @@ void    Bureaucrat::executeForm( AForm const & form ) {
     If not, print an explicit error message */
     if (form.getSigned() != true)
     {
-        std::cout << "Form is not signed yet. Make it sign before execution." << std::endl;
+        std::cout << form.getName() << " is not signed yet. Make it sign before execution." << std::endl;
         return ;
     }
     if (this->_grade > form.getGrade_exec())
