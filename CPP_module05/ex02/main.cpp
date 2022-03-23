@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 void    test1(void)
 {
@@ -82,8 +82,8 @@ int main( void )
     std::cout << Bob << std::endl;
 
 
-    Form    form("myDoc", 50, 1);
-    Form    Contrat("Contrat", 150, 2);
+    AForm    form("myDoc", 50, 1);
+    AForm    Contrat("Contrat", 150, 2);
     try
     {
         form.beSigned(Bob);

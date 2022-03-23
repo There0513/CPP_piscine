@@ -1,15 +1,15 @@
 SRCS	= main.cpp \
 		  Bureaucrat.cpp \
-		  Form.cpp \
+		  AForm.cpp \
 		  ShrubberyCreationForm.cpp \
 		  RobotomyRequestForm.cpp \
 		  PresidentialPardonForm.cpp
 
-HEADER	= Bureaucrat.hpp \
-		  Form.hpp \
-		  ShrubberyCreationForm.cpp \
-		  RobotomyRequestForm.hpp \
-		  PresidentialPardonForm.hpp
+HEADER	= header/Bureaucrat.hpp \
+		  header/AForm.hpp \
+		  header/ShrubberyCreationForm.cpp \
+		  header/RobotomyRequestForm.hpp \
+		  header/PresidentialPardonForm.hpp
 
 NAME	= bureaucrat
 

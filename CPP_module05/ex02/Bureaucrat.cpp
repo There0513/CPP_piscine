@@ -60,7 +60,7 @@ std::ostream & operator<<( std::ostream & o, Bureaucrat const & copy ) {    // o
     return o;
 }
 
-void            Bureaucrat::signForm(Form & form) {
+void            Bureaucrat::signForm(AForm & form) {
     if (form.getSigned() == true)
         std::cout << "Form already signed." << std::endl;
     else if (this->_grade <= form.getGrade_sign())
