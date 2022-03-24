@@ -2,7 +2,7 @@
 # define AFORM_HPP
 
 # include <iostream>
-# include <fstream> // std::ofstream for file
+# include <fstream> // std::ofstream for filePresidentialPardonForm
 # include "Bureaucrat.hpp"
 // # include "ShrubberyCreationForm.hpp"
 // # include "RobotomyRequestForm.hpp"
