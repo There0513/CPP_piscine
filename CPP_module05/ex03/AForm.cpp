@@ -61,7 +61,6 @@ void            AForm::beSigned( const Bureaucrat & person ) {
     if (person.getGrade() <= this->_grade_sign && person.getGrade() > 0)
     {
         this->_signed = true;
-        // std::cout << "The document is signed." << std::endl;
     }
     else
         throw AForm::GradeTooLowException();
