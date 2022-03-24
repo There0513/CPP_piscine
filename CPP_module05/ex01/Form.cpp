@@ -56,7 +56,6 @@ void            Form::beSigned( Bureaucrat person ) {
     }
     if (person.getGrade() <= this->_grade_sign && person.getGrade() > 0)
     {
-        // setSigned(true);
         this->_signed = true;
         std::cout << "The document is signed." << std::endl;
     }
@@ -66,8 +65,5 @@ void            Form::beSigned( Bureaucrat person ) {
 
 std::ostream & operator<<( std::ostream & o, Form const & copy ) {    // o = output stream
     o << copy.getName() << "'s Form signed status = " << copy.getSigned() << ".\n" << "and can be executed with a min grade of " << copy.getGrade_exec() << " and signed with a max grade of " << copy.getGrade_sign();
-
-    // std::cout << "" << std::endl;
-    // std::cout << "" << std::endl;
     return o;
 }

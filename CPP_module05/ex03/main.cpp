@@ -223,7 +223,6 @@ int main( void )
 
         AForm* rrf;
         rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-        std::cout << *rrf << std::endl;
         delete rrf;
 
     }

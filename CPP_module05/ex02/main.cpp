@@ -18,6 +18,7 @@ void    test3(void)
 {
     Bureaucrat  Laura("Laura", 102);
 }
+
 int main( void )
 {
     try

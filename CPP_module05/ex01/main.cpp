@@ -84,6 +84,9 @@ int main( void )
 
     Form    form("myDoc", 50, 1);
     Form    Contrat("Contrat", 150, 2);
+
+    std::cout << Contrat << std::endl;
+    
     try
     {
         form.beSigned(Bob);

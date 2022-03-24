@@ -10,7 +10,6 @@ _target(target) {
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & copy ) {
     *this = copy;
-    // *this->_target = copy._target;
 }
 
 RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const & copy ) {
@@ -21,7 +20,6 @@ RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const 
 RobotomyRequestForm::~RobotomyRequestForm( void ) {
 }
 
-		// std::string getTarget() const;
 void    RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     try
     {
