@@ -1,8 +1,8 @@
 SRCS	= main.cpp \
 
-HEADER	= Bureaucrat.hpp
+HEADER	= Conversion.hpp
 
-NAME	= bureaucrat
+NAME	= convert
 
 CC	= c++
 
