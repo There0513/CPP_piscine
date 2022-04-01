@@ -1,4 +1,5 @@
 SRCS	= main.cpp \
+		  Conversion.cpp
 
 HEADER	= Conversion.hpp
 
