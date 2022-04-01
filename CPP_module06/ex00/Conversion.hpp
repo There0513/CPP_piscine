@@ -15,18 +15,35 @@
 class Conversion
 {
     private:
-        int     _type;
-        double  _nbr;
+        std::string _convPtrs[3];
+        int         _type;
 
     public:
         Conversion( std::string const nbr);
         Conversion( Conversion const & copy );
         Conversion & operator=( Conversion const & copy );
         ~Conversion( void );
+
+        /* utils get type: */
         int     getType( std::string const nbr );
         int     get_numeric_type( std::string const nbr );
         void    print_type( int type );
-        
 };
 
 #endif
+
+// ./convert 0
+// char: Non displayable
+// int: 0
+// float: 0.0f
+// double: 0.0
+// ./convert nan
+// char: impossible
+// int: impossible
+// float: nanf
+// double: nan
+// ./convert 42.0f
+// char: '*'
+// int: 42
+// float: 42.0f
+// double: 42.0

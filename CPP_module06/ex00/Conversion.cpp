@@ -55,18 +55,65 @@ int Conversion::getType( std::string const nbr ) {
                 _type = ERROR;
     if (_type != CHAR && _type != ERROR)
         _type = get_numeric_type(nbr);
-    print_type(_type);
+    // print_type(_type);
     if (_type == -1 || _type == 0)
         std::cout << "Error." << std::endl;
     return _type;
 }
 
-Conversion::Conversion( std::string const nbr ): _type(NOT_DEF) {
-    // conv
-    _type = getType(nbr);
-    // if (_type > 0 && _type < 5)
-        // conv[_type]();
+void    CharToConv( std::string const str ) {
+    char    charVal = str[0];
 
+	// if (charVal > 31 && charVal < 127 && charVal != 0)
+        // if (std::isprint(charVal))
+        std::cout << "char: '" << charVal << "'" << std::endl;
+    // else
+    //     std::cout << "char: Non displayable" << std::endl;
+    std::cout << "int: " << static_cast<int>(charVal) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(charVal) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(charVal) << std::endl;
+}
+
+void    IntToConv( std::string const str ) {
+    int intVal = atoi(str.c_str());
+
+	if (intVal > 31 && intVal < 127 && intVal != 0)
+        std::cout << "char: '" << static_cast<char>(intVal) << "'" << std::endl;
+    else
+    std::cout << "char: Non displayable" << std::endl;
+    std::cout << "int: " << intVal << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(intVal) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(intVal) << std::endl;
+}
+
+void    FloatToConv( std::string const str ) {
+	char	*end = NULL;
+
+    float   floatVal = std::strtof(str.c_str(), &end);
+
+    std::cout << "char: '" << static_cast<char>(floatVal) << "'" << std::endl;
+    std::cout << "int: " << static_cast<int>(floatVal) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << floatVal << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(floatVal) << std::endl;
+}
+
+void    DoubleToConv( std::string const str ) {
+    char	*end;
+
+	double doubleVal = std::strtod(str.c_str(), &end);
+
+    std::cout << "char: '" << static_cast<char>(doubleVal) << "'" << std::endl;
+    std::cout << "int: " << static_cast<int>(doubleVal) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(doubleVal) << "f" << std::endl;
+    std::cout << "double: " << doubleVal << std::endl;
+}
+
+Conversion::Conversion( std::string const nbr ): _type(NOT_DEF) {
+    void    (*(convPtrs[]))( std::string str ) = {&CharToConv, &IntToConv, &FloatToConv, &DoubleToConv};
+    _type = getType(nbr);
+    // check limits here?!
+    if (_type > 0 && _type < 5)
+        (*(convPtrs[_type - 1]))(nbr);
 }
 
 Conversion::Conversion( Conversion const & copy ) {
@@ -74,7 +121,7 @@ Conversion::Conversion( Conversion const & copy ) {
 }
 
 Conversion & Conversion::operator=( Conversion const & copy ) {
-    this->_nbr = copy._nbr;
+    (void) copy;
     return *this;
 }
 
