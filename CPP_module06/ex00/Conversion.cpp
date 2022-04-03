@@ -61,59 +61,122 @@ int Conversion::getType( std::string const nbr ) {
     return _type;
 }
 
-void    CharToConv( std::string const str ) {
+// const std::string	limit[8] = {"inf", "inff", "+inf", "+inff", "-inf", "-inff", "nan", "nanf"};
+void    print_with_limits( std::string limit ) {
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    if (limit == "inf" || limit == "inff" || limit == "+inf" || limit == "+inff") {
+        std::cout << "float: inff" << std::endl;
+        std::cout << "double: inf" << std::endl;
+    }
+    else if (limit == "-inf" || limit == "-inff" || limit == "-inf" || limit == "-inff") {
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
+    }
+    else if (limit == "nan" || limit == "nanf") {
+        std::cout << "float: nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
+    }
+    else
+        std::cout << "error - please try again." << std::endl;
+    // std::cout << "double: " << std::endl;
+}
+
+void    CharToConv( std::string const str, std::string limit ) {
     char    charVal = str[0];
 
-	// if (charVal > 31 && charVal < 127 && charVal != 0)
-        // if (std::isprint(charVal))
+    if (limit != "no_limit") {
+        print_with_limits(limit);
+        return ;
+    }
+        // std::cout << "char: impossible" << std::endl;
+    if (std::isprint(charVal))
         std::cout << "char: '" << charVal << "'" << std::endl;
-    // else
-    //     std::cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(charVal) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(charVal) << "f" << std::endl;
+    // if (limit != "no_limit")
+        // std::cout << "limit = " << limit << std::endl;
+    // else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(charVal) << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(charVal) << std::endl;
 }
 
-void    IntToConv( std::string const str ) {
+void    IntToConv( std::string const str, std::string limit ) {
     int intVal = atoi(str.c_str());
 
-	if (intVal > 31 && intVal < 127 && intVal != 0)
+    if (limit != "no_limit") {
+        print_with_limits(limit);
+        return ;
+    }
+        // std::cout << "char: impossible" << std::endl;
+    if (std::isprint(intVal))
         std::cout << "char: '" << static_cast<char>(intVal) << "'" << std::endl;
     else
-    std::cout << "char: Non displayable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << intVal << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(intVal) << "f" << std::endl;
+    // if (limit != "no_limit")
+        // std::cout << "limit = " << limit << std::endl;
+    // else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(intVal) << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(intVal) << std::endl;
 }
 
-void    FloatToConv( std::string const str ) {
+void    FloatToConv( std::string const str, std::string limit ) {
 	char	*end = NULL;
 
     float   floatVal = std::strtof(str.c_str(), &end);
 
-    std::cout << "char: '" << static_cast<char>(floatVal) << "'" << std::endl;
+    if (limit != "no_limit") {
+        print_with_limits(limit);
+        return ;
+    }
+        // std::cout << "char: impossible" << std::endl;
+    if (std::isprint(floatVal))
+        std::cout << "char: '" << static_cast<char>(floatVal) << "'" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(floatVal) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << floatVal << "f" << std::endl;
+    // if (limit != "no_limit")
+        // std::cout << "limit = " << limit << std::endl;
+    // else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << floatVal << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(floatVal) << std::endl;
 }
 
-void    DoubleToConv( std::string const str ) {
+void    DoubleToConv( std::string const str, std::string limit ) {
     char	*end;
 
 	double doubleVal = std::strtod(str.c_str(), &end);
 
-    std::cout << "char: '" << static_cast<char>(doubleVal) << "'" << std::endl;
+    if (limit != "no_limit") {
+        print_with_limits(limit);
+        return ;
+    }
+        // std::cout << "char: impossible" << std::endl;
+    if (std::isprint(doubleVal))
+        std::cout << "char: '" << static_cast<char>(doubleVal) << "'" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(doubleVal) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(doubleVal) << "f" << std::endl;
+    // if (limit != "no_limit")
+        // std::cout << "limit = " << limit << std::endl;
+    // else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(doubleVal) << "f" << std::endl;
     std::cout << "double: " << doubleVal << std::endl;
 }
 
-Conversion::Conversion( std::string const nbr ): _type(NOT_DEF) {
-    void    (*(convPtrs[]))( std::string str ) = {&CharToConv, &IntToConv, &FloatToConv, &DoubleToConv};
+Conversion::Conversion( std::string const nbr ): _type(NOT_DEF), _limit("no_limit") {
+    void    (*(convPtrs[]))( std::string str, std::string limit ) = {&CharToConv, &IntToConv, &FloatToConv, &DoubleToConv};
     _type = getType(nbr);
-    // check limits here?!
+    // check limits here:
+	const std::string	limit[8] = {"inf", "inff", "+inf", "+inff", "-inf", "-inff", "nan", "nanf"};
+    for (int i = 0; i < 8; i++) {
+        if (nbr == limit[i])
+            _limit = limit[i];
+    }
     if (_type > 0 && _type < 5)
-        (*(convPtrs[_type - 1]))(nbr);
+        (*(convPtrs[_type - 1]))(nbr, this->_limit);
 }
 
 Conversion::Conversion( Conversion const & copy ) {

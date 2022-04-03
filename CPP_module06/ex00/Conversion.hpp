@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <iostream>
 # include <iomanip>
+# include <math.h>
 
 # define ERROR       -1
 # define NOT_DEF     0
@@ -17,6 +18,7 @@ class Conversion
     private:
         std::string _convPtrs[3];
         int         _type;
+        std::string _limit;
 
     public:
         Conversion( std::string const nbr);
