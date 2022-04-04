@@ -6,6 +6,7 @@
 # include <iostream>
 # include <iomanip>
 # include <math.h>
+# include <limits>
 
 # define ERROR       -1
 # define NOT_DEF     0

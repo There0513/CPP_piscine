@@ -22,7 +22,10 @@ int Conversion::get_numeric_type(std::string str)
     int no_int = 0;
     size_t find_f = str.find('f');
 
-    for (size_t i = 0; i < str.length(); i++)
+    size_t i = 0;
+    if (str[0] == '-')
+        i = 1;
+    while (i < str.length())
     {
         if (!isdigit(str[i]) && str[i] != '.' && str[i] != 'f')
             return -1;
@@ -32,6 +35,7 @@ int Conversion::get_numeric_type(std::string str)
             return 4;
         if (str[i] == '.')  // . != int
             no_int = 1;
+        i++;
     }
     if (no_int == 0)
         return 2;
@@ -40,7 +44,7 @@ int Conversion::get_numeric_type(std::string str)
         std::cout << "\tif (not_int != 1) -> ret 4" << std::endl;
         return 4;
     }
-    std::cout << "else else else" << std::endl;
+    // std::cout << "else else else" << std::endl;
     return 0;
 }
 
@@ -79,7 +83,6 @@ void    print_with_limits( std::string limit ) {
     }
     else
         std::cout << "error - please try again." << std::endl;
-    // std::cout << "double: " << std::endl;
 }
 
 void    CharToConv( std::string const str, std::string limit ) {
@@ -103,22 +106,24 @@ void    CharToConv( std::string const str, std::string limit ) {
 }
 
 void    IntToConv( std::string const str, std::string limit ) {
+    int len = 0;
+    if (str.length() > 10)
+        len = 1;
     int intVal = atoi(str.c_str());
 
     if (limit != "no_limit") {
         print_with_limits(limit);
         return ;
     }
-        // std::cout << "char: impossible" << std::endl;
-    if (std::isprint(intVal))
+    if (intVal > 32 && intVal < 127)
         std::cout << "char: '" << static_cast<char>(intVal) << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
-    std::cout << "int: " << intVal << std::endl;
-    // if (limit != "no_limit")
-        // std::cout << "limit = " << limit << std::endl;
-    // else
-        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(intVal) << "f" << std::endl;
+    if (len)
+        std::cout << "int: out of range" << std::endl;
+    else
+        std::cout << "int: " << intVal << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(intVal) << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(intVal) << std::endl;
 }
 
