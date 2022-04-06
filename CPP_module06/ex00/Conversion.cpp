@@ -44,7 +44,6 @@ int Conversion::get_numeric_type(std::string str)
         std::cout << "\tif (not_int != 1) -> ret 4" << std::endl;
         return 4;
     }
-    // std::cout << "else else else" << std::endl;
     return 0;
 }
 
@@ -65,7 +64,6 @@ int Conversion::getType( std::string const nbr ) {
     return _type;
 }
 
-// const std::string	limit[8] = {"inf", "inff", "+inf", "+inff", "-inf", "-inff", "nan", "nanf"};
 void    print_with_limits( std::string limit ) {
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
@@ -85,6 +83,14 @@ void    print_with_limits( std::string limit ) {
         std::cout << "error - please try again." << std::endl;
 }
 
+void    out_of_range( void )
+{
+    std::cout << "char: Non displayable" << std::endl;
+    std::cout << "int: out of range" << std::endl;
+    std::cout << "float: out of range" << std::endl;
+    std::cout << "double: out of range" << std::endl;
+}
+
 void    CharToConv( std::string const str, std::string limit ) {
     char    charVal = str[0];
 
@@ -92,22 +98,20 @@ void    CharToConv( std::string const str, std::string limit ) {
         print_with_limits(limit);
         return ;
     }
-        // std::cout << "char: impossible" << std::endl;
     if (std::isprint(charVal))
         std::cout << "char: '" << charVal << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(charVal) << std::endl;
-    // if (limit != "no_limit")
-        // std::cout << "limit = " << limit << std::endl;
-    // else
         std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(charVal) << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(charVal) << std::endl;
 }
 
 void    IntToConv( std::string const str, std::string limit ) {
     int len = 0;
-    if (str.length() > 10)
+	double value = atof(str.c_str());
+
+    if (str.length() > 10 || value > 2147483647 || value < -2147483648)
         len = 1;
     int intVal = atoi(str.c_str());
 
@@ -119,8 +123,13 @@ void    IntToConv( std::string const str, std::string limit ) {
         std::cout << "char: '" << static_cast<char>(intVal) << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
-    if (len)
+    if (len && str != "-2147483648")
+    {
         std::cout << "int: out of range" << std::endl;
+        std::cout << "float: out of range" << std::endl;
+        std::cout << "double: out of range" << std::endl;
+        return ;
+    }
     else
         std::cout << "int: " << intVal << std::endl;
     std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(intVal) << "f" << std::endl;
@@ -129,22 +138,20 @@ void    IntToConv( std::string const str, std::string limit ) {
 
 void    FloatToConv( std::string const str, std::string limit ) {
 	char	*end = NULL;
-
     float   floatVal = std::strtof(str.c_str(), &end);
+	double value = atof(str.c_str());
 
+    if (str.length() > 10 || value > 2147483647 || value < -2147483648)
+        return out_of_range();
     if (limit != "no_limit") {
         print_with_limits(limit);
         return ;
     }
-        // std::cout << "char: impossible" << std::endl;
     if (std::isprint(floatVal))
         std::cout << "char: '" << static_cast<char>(floatVal) << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(floatVal) << std::endl;
-    // if (limit != "no_limit")
-        // std::cout << "limit = " << limit << std::endl;
-    // else
         std::cout << "float: " << std::fixed << std::setprecision(1) << floatVal << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(floatVal) << std::endl;
 }
@@ -153,20 +160,17 @@ void    DoubleToConv( std::string const str, std::string limit ) {
     char	*end;
 
 	double doubleVal = std::strtod(str.c_str(), &end);
-
+    if (str.length() > 10 || doubleVal > 2147483647 || doubleVal < -2147483648)
+        return out_of_range();
     if (limit != "no_limit") {
         print_with_limits(limit);
         return ;
     }
-        // std::cout << "char: impossible" << std::endl;
     if (std::isprint(doubleVal))
         std::cout << "char: '" << static_cast<char>(doubleVal) << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(doubleVal) << std::endl;
-    // if (limit != "no_limit")
-        // std::cout << "limit = " << limit << std::endl;
-    // else
         std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(doubleVal) << "f" << std::endl;
     std::cout << "double: " << doubleVal << std::endl;
 }
@@ -174,7 +178,6 @@ void    DoubleToConv( std::string const str, std::string limit ) {
 Conversion::Conversion( std::string const nbr ): _type(NOT_DEF), _limit("no_limit") {
     void    (*(convPtrs[]))( std::string str, std::string limit ) = {&CharToConv, &IntToConv, &FloatToConv, &DoubleToConv};
     _type = getType(nbr);
-    // check limits here:
 	const std::string	limit[8] = {"inf", "inff", "+inf", "+inff", "-inf", "-inff", "nan", "nanf"};
     for (int i = 0; i < 8; i++) {
         if (nbr == limit[i])
@@ -194,5 +197,4 @@ Conversion & Conversion::operator=( Conversion const & copy ) {
 }
 
 Conversion::~Conversion( void ) {
-
 }

@@ -1,4 +1,3 @@
-// # include "header/Base.hpp"
 # include "header/A.hpp"
 # include "header/B.hpp"
 # include "header/C.hpp"
@@ -24,7 +23,6 @@ Base * generate(void)
 {
     int randNum = get_random_nbr();
     randNum = abs(randNum);
-    std::cout << "randNum = " << randNum << std::endl;
     if (randNum == 0)
         return (new A());
     else if (randNum == 1)
