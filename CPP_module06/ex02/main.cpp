@@ -77,6 +77,21 @@ void identify(Base& p)
 int main( void )
 {
 	Base    *base;
+    A*      ap = new A();
+    B*      bp = new B();
+    C*      cp = new C();
+    A&      ar = *ap;
+    B&      br = *bp;
+    C&      cr = *cp;
+
+    identify(ap);
+    identify(bp);
+    identify(cp);
+    identify(ar);
+    identify(br);
+    identify(cr);
+
+    std::cout << std::endl;
 
     base = generate();
     identify(base);

@@ -17,12 +17,12 @@ void    Conversion::print_type( int type )
     std::cout << "type = "<< type << std::endl;
 }
 
-int Conversion::get_numeric_type(std::string str)
+int     Conversion::get_numeric_type(std::string str)
 {
     int no_int = 0;
     size_t find_f = str.find('f');
-
     size_t i = 0;
+
     if (str[0] == '-')
         i = 1;
     while (i < str.length())
@@ -40,18 +40,24 @@ int Conversion::get_numeric_type(std::string str)
     if (no_int == 0)
         return 2;
     if (no_int != 1)
-    {
-        std::cout << "\tif (not_int != 1) -> ret 4" << std::endl;
         return 4;
-    }
+    if (no_int == 1)
+        return 4;
     return 0;
 }
 
-int Conversion::getType( std::string const nbr ) {
+int     Conversion::getType( std::string const nbr ) {
      size_t i = -1;
-    while (++i < nbr.length() && !isdigit(nbr[i]));
+    while (++i < nbr.length() && !isdigit(nbr[i]) && nbr[i] != '.');
     if (i == nbr.length())
+    {
         _type = CHAR;
+        if (i != 1)
+        {
+            std::cout << "Do not use string - Please use char, int, float or double." << std::endl;
+            return _type = -1;
+        }
+    }
     else
         while (++i < nbr.length())
             if (!isdigit(nbr[i]) && nbr[i] != '.' && nbr[i] != 'f')
@@ -111,7 +117,7 @@ void    IntToConv( std::string const str, std::string limit ) {
     int len = 0;
 	double value = atof(str.c_str());
 
-    if (str.length() > 10 || value > 2147483647 || value < -2147483648)
+    if (value > 2147483647 || value < -2147483648)
         len = 1;
     int intVal = atoi(str.c_str());
 
@@ -119,7 +125,7 @@ void    IntToConv( std::string const str, std::string limit ) {
         print_with_limits(limit);
         return ;
     }
-    if (intVal > 32 && intVal < 127)
+    if (intVal >= 32 && intVal < 127)
         std::cout << "char: '" << static_cast<char>(intVal) << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
@@ -141,7 +147,7 @@ void    FloatToConv( std::string const str, std::string limit ) {
     float   floatVal = std::strtof(str.c_str(), &end);
 	double value = atof(str.c_str());
 
-    if (str.length() > 10 || value > 2147483647 || value < -2147483648)
+    if (value > 2147483647 || value < -2147483648)
         return out_of_range();
     if (limit != "no_limit") {
         print_with_limits(limit);
@@ -160,7 +166,7 @@ void    DoubleToConv( std::string const str, std::string limit ) {
     char	*end;
 
 	double doubleVal = std::strtod(str.c_str(), &end);
-    if (str.length() > 10 || doubleVal > 2147483647 || doubleVal < -2147483648)
+    if (doubleVal > 2147483647 || doubleVal < -2147483648)
         return out_of_range();
     if (limit != "no_limit") {
         print_with_limits(limit);
