@@ -1,7 +1,15 @@
 #include "whatever.hpp"
+// #include "test.hpp"
 
 int main( void )
 {
+	// Awesome a(2), b(4);
+
+	// swap(a,b);
+	// std::cout << a << " " << b << std::endl;
+	// std::cout << max(a,b) << std::endl;
+	// std::cout << min(a,b) << std::endl;
+
     int a = 2;
     int b = 3;
     ::swap(a, b);
