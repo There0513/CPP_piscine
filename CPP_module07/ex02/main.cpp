@@ -1,6 +1,6 @@
 #include <iostream>
-#include <Array.hpp>
-
+#include "Array.hpp"
+#include <stdlib.h>     /* srand, rand */
 #define MAX_VAL 750
 
 int main(int, char**)
