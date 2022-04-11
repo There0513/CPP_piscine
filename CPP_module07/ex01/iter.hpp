@@ -6,7 +6,7 @@
 template<typename T>
 void    print_coucou(const T &elem)
 {
-    std::cout << "Coucou" << std::endl;
+    std::cout << "Coucou\t";
     std::cout << "elem = " << elem << std::endl;
 }
 

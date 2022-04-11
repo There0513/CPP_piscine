@@ -6,6 +6,9 @@ int main(void)
     char str[6] = "Hello";
 
     iter<std::string>(array, 3, print_coucou);
+    
+    std::cout << std::endl;
+
     iter<char>(str, 5, print_coucou);
     return 0;
 }

@@ -3,6 +3,7 @@
 
 template< typename T>
 class Array {
+    
     private:
         int _len;
         T * _array;
@@ -39,10 +40,5 @@ class Array {
             return this->_len;
         }
 };
-
-// template< typename T>
-// std::ostream & operator<<( std::ostream & o, Array<T> const & copy) {
-//     o << "size = " << copy.size() << std::endl;
-// }
 
 #endif
