@@ -3,8 +3,10 @@
 # include <iostream>
 # include <vector>
 # include <algorithm>
+# include <climits>
+# include <ctime>
 
-// CONST!!!!!!!!!!!!!!!!!!!!
+// CONST!!!!!!!!!!!!!!!!!!!!?
 class Span
 {
     private:
@@ -18,7 +20,10 @@ class Span
         Span & operator=( Span const & copy );
         ~Span( void );
 
+        std::vector<int>    getTab( void );
+
         void    addNumber( int nbr );
+        void    addMoreNbrs( unsigned int nbr);
         int     shortestSpan( void ) const;
         int     longestSpan( void ) const;
 };
