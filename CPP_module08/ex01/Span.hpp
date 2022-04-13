@@ -6,7 +6,6 @@
 # include <climits>
 # include <ctime>
 
-// CONST!!!!!!!!!!!!!!!!!!!!?
 class Span
 {
     private:
