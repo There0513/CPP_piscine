@@ -35,7 +35,7 @@ int main( void )
     std::cout << "\n\t\033[1;33mFill tab with random generated numbers:\033[0m" << std::endl;
     try
     {
-		unsigned int len = 4;
+		unsigned int len = 10000;
 
 		Span sp = Span(len);
 		sp.addMoreNbrs(len);

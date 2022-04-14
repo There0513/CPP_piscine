@@ -3,7 +3,7 @@
 # include <algorithm>
 # include <vector>
 # include <iostream>
-#include <cstdlib>     /* srand, rand */
+# include <cstdlib>     /* srand, rand */
 
 template< typename T>
 typename T::iterator    easyfind(T &container, int nbr) {

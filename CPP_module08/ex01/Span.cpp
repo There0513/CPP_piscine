@@ -36,9 +36,9 @@ void    Span::addMoreNbrs( unsigned int nbr ) {
     this->_tab = std::vector<int>(nbr);
     std::generate(this->_tab.begin(), this->_tab.end(), std::rand);
     // PRINT ARRAY:
-    std::cout << "addMoreNbrs print _tab:" << std::endl;
-     for (unsigned long i = 0; i < this->_tab.size(); i++)
-        std::cout << this->_tab[i] << std::endl;
+    // std::cout << "addMoreNbrs print _tab:" << std::endl;
+    //  for (unsigned long i = 0; i < this->_tab.size(); i++)
+    //     std::cout << this->_tab[i] << std::endl;
 }
 
 int     Span::shortestSpan( void ) const {
