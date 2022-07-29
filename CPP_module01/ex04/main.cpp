@@ -12,6 +12,7 @@ int main(int ac, char **av)
 	std::string s1 = av[2];
 	std::string s2 = av[3];
 	std::string line;
+	size_t		it = 0;	// it added after correction to make work ./sed test1.txt cou coucou
 
 	if (filename.length() == 0 || s1.length() == 0)
 	{
@@ -28,11 +29,12 @@ int main(int ac, char **av)
 		{
 			if (s1 != s2)		// replace s1 with s2
 			{
-				size_t pos = line.find(s1);
-				while ((pos = line.find(s1)) != std::string::npos)
+				size_t pos = line.find(s1, it);
+				while ((pos = line.find(s1, it)) != std::string::npos)
 				{
 					line.erase(pos, s1.length());
 					line.insert(pos, s2);
+					it = it + s2.length();
 				}
 			}
 			out_file << line << "\n";
